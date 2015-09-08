@@ -7,12 +7,27 @@
 		<key>Breakpad.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>36</integer>
+			<integer>0</integer>
+		</dict>
+		<key>BreakpadiOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>D2AAC07D0554694100DB518D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E62CF3751B9F5AE40058D6FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E62CF38A1B9F5B960058D6FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
