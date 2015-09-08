@@ -230,6 +230,13 @@ NSString* GetPlatform() {
   uploadTimeParameters_ = [uploadTimeParameters copy];
 }
 
+- (void)setFilterCallback:(BreakpadFilterCallback)callback {
+  NSAssert(started_, @"The controller must be started when "
+                      "setFilterCallback is called");
+
+  BreakpadSetFilterCallback(breakpadRef_, callback);
+}
+
 - (void)addUploadParameter:(NSString*)value forKey:(NSString*)key {
   NSAssert(started_,
       @"The controller must be started before addUploadParameter is called");
