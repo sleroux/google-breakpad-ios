@@ -71,3 +71,6 @@
 #define BREAKPAD_LOGFILE_KEY_PREFIX       "BreakpadAppLogFile"
 #define BREAKPAD_SERVER_PARAMETER_PREFIX  "BreakpadServerParameterPrefix_"
 #define BREAKPAD_ON_DEMAND                "BreakpadOnDemand"
+
+// Keys for session information saved in User Defaults
+#define kLastSessionDidCrashKey @"com.google.Breakpad.LastSessionDidCrash"
