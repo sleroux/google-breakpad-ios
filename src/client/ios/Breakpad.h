@@ -57,7 +57,10 @@ extern "C" {
 // Return false if you want Breakpad to skip it
 // The exception handler always returns false, as if SEND_AND_EXIT were false
 // (which means the next exception handler will take the exception)
-typedef bool (*BreakpadFilterCallback)(void *context);
+typedef bool (*BreakpadFilterCallback)(int exception_type,
+                                       int exception_code,
+                                       mach_port_t crashing_thread,
+                                       void *context);
 
 // Create a new BreakpadRef object and install it as an exception
 // handler.  The |parameters| will typically be the contents of your
@@ -238,10 +241,6 @@ void BreakpadUploadData(BreakpadRef ref, NSData *data, NSString *name,
 NSDictionary *BreakpadGenerateReport(BreakpadRef ref,
                                      NSDictionary *server_parameters);
 
-// Set a callback that will allow external users to stop breakpad from reporting
-// or just know when a crash occurred
-void BreakpadSetFilterCallback(BreakpadRef ref,
-                               BreakpadFilterCallback callback);
 #ifdef __cplusplus
 }
 #endif

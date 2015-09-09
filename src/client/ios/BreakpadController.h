@@ -91,10 +91,6 @@
 // Set additional server parameters to send when uploading crash reports.
 - (void)setParametersToAddAtUploadTime:(NSDictionary*)uploadTimeParameters;
 
-// Pass in a callback that latches on to when breakpad has detected a crash. Returning YES will
-// by pass breakpad and not generate a minidump file.
-- (void)setFilterCallback:(BreakpadFilterCallback)callback;
-
 // Specify an upload parameter that will be added to the crash report when a
 // crash report is generated. See |BreakpadAddUploadParameter|.
 - (void)addUploadParameter:(NSString*)value forKey:(NSString*)key;

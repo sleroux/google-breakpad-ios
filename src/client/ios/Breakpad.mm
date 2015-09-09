@@ -147,10 +147,6 @@ class Breakpad {
 
   ~Breakpad();
 
-  void SetFilterCallback(BreakpadFilterCallback callback) {
-      filter_callback_ = callback;
-  }
-
   void SetKeyValue(NSString *key, NSString *value);
   NSString *KeyValue(NSString *key);
   void RemoveKeyValue(NSString *key);
@@ -170,8 +166,7 @@ class Breakpad {
  private:
   Breakpad()
     : handler_(NULL),
-      config_params_(NULL),
-      filter_callback_(NULL) {}
+      config_params_(NULL) {}
 
   bool Initialize(NSDictionary *parameters);
 
@@ -202,8 +197,6 @@ class Breakpad {
   // A static reference to the current Breakpad instance. Used for handling
   // NSException.
   static Breakpad *current_breakpad_;
-
-  BreakpadFilterCallback filter_callback_;
 };
 
 Breakpad *Breakpad::current_breakpad_ = NULL;
@@ -300,7 +293,7 @@ bool Breakpad::Initialize(NSDictionary *parameters) {
           sizeof(google_breakpad::ExceptionHandler)))
           google_breakpad::ExceptionHandler(
               config_params_->GetValueForKey(BREAKPAD_DUMP_DIRECTORY),
-              filter_callback_, &HandleMinidumpCallback, this, true, 0);
+              0, &HandleMinidumpCallback, this, true, 0);
   NSSetUncaughtExceptionHandler(&Breakpad::UncaughtExceptionHandler);
   return true;
 }
@@ -920,20 +913,4 @@ NSDictionary *BreakpadGenerateReport(BreakpadRef ref,
     fprintf(stderr, "BreakpadGenerateReport() : error\n");
     return nil;
   }
-}
-//=============================================================================
-void BreakpadSetFilterCallback(BreakpadRef ref, BreakpadFilterCallback callback) {
-
-    try {
-        Breakpad *breakpad = (Breakpad *)ref;
-
-        if (breakpad && gBreakpadAllocator) {
-            // share the dictionary mutex here (we really don't need a mutex)
-            ProtectedMemoryLocker locker(&gDictionaryMutex, gBreakpadAllocator);
-
-            breakpad->SetFilterCallback(callback);
-        }
-    } catch(...) {    // don't let exceptions leave this C API
-        fprintf(stderr, "BreakpadSetFilterCallback() : error\n");
-    }
 }
