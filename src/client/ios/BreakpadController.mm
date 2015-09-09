@@ -248,6 +248,16 @@ NSString* GetPlatform() {
   });
 }
 
+- (BOOL)didCrashLastSession
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kLastSessionDidCrashKey];
+}
+
+- (void)resetLastSessionCrashState
+{
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kLastSessionDidCrashKey];
+}
+
 - (void)withBreakpadRef:(void(^)(BreakpadRef))callback {
   NSAssert(started_,
       @"The controller must be started before withBreakpadRef is called");

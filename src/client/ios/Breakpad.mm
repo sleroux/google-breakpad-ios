@@ -183,6 +183,9 @@ class Breakpad {
   // NSException handler
   static void UncaughtExceptionHandler(NSException *exception);
 
+  // Callback invoked any time there is a crash
+  static bool CrashFilterCallback(void *context);
+
   // Handle an uncaught NSException.
   void HandleUncaughtException(NSException *exception);
 
@@ -267,6 +270,11 @@ void Breakpad::UncaughtExceptionHandler(NSException *exception) {
   BreakpadRelease(current_breakpad_);
 }
 
+bool Breakpad::CrashFilterCallback(void *context) {
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kLastSessionDidCrashKey];
+    return true;
+}
+
 //=============================================================================
 #pragma mark -
 
@@ -293,7 +301,7 @@ bool Breakpad::Initialize(NSDictionary *parameters) {
           sizeof(google_breakpad::ExceptionHandler)))
           google_breakpad::ExceptionHandler(
               config_params_->GetValueForKey(BREAKPAD_DUMP_DIRECTORY),
-              0, &HandleMinidumpCallback, this, true, 0);
+              &CrashFilterCallback, &HandleMinidumpCallback, this, true, 0);
   NSSetUncaughtExceptionHandler(&Breakpad::UncaughtExceptionHandler);
   return true;
 }

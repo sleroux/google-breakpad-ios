@@ -99,6 +99,12 @@
 // |BreakpadRemoveUploadParameter|.
 - (void)removeUploadParameterForKey:(NSString*)key;
 
+// Check to see if we crashed in a previous session
+- (BOOL)didCrashLastSession;
+
+// Reset state indicating that we crashed in the last session
+- (void)resetLastSessionCrashState;
+
 // Access the underlying BreakpadRef. This method is asynchronous, and will be
 // executed on the thread owning the BreakpadRef variable. Moreover, if the
 // controller is not started, the block will be called with a NULL parameter.
