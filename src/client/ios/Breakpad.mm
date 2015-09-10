@@ -29,7 +29,7 @@
 
 #define IGNORE_DEBUGGER "BREAKPAD_IGNORE_DEBUGGER"
 
-#import "client/ios/Breakpad.h"
+#import "client/ios/BreakpadInterface.h"
 
 #include <assert.h>
 #import <Foundation/Foundation.h>

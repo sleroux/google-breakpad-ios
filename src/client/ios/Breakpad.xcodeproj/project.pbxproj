@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E62CF3791B9F5AE40058D6FC /* BreakpadiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = E62CF3781B9F5AE40058D6FC /* BreakpadiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E62CF37F1B9F5B410058D6FC /* BreakpadDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C7C968147D4A4200776EAD /* BreakpadDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E62CF3801B9F5B410058D6FC /* BreakpadController.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C92FAB150DF8330053D7BA /* BreakpadController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E62CF3811B9F5B410058D6FC /* Breakpad.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C7C96A147D4A4200776EAD /* Breakpad.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E62CF3811B9F5B410058D6FC /* BreakpadInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C7C96A147D4A4200776EAD /* BreakpadInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E62CF3821B9F5B640058D6FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		E69E4E311B9F71EF00646EDB /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E69E4E301B9F71EF00646EDB /* libstdc++.6.0.9.dylib */; };
 		E6C05D811BA1CB2B00CDDD08 /* BreakpadController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C92FAC150DF8330053D7BA /* BreakpadController.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -59,6 +58,8 @@
 		E6C05DAC1BA1CB4E00CDDD08 /* md5.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C7CCA5147D4A4300776EAD /* md5.h */; };
 		E6C05DAD1BA1CB4E00CDDD08 /* string_conversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C7CCBA147D4A4300776EAD /* string_conversion.h */; };
 		E6C05DAE1BA1CB4E00CDDD08 /* Breakpad_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* Breakpad_Prefix.pch */; };
+		E6C05DB71BA1E6F900CDDD08 /* Breakpad.h in Headers */ = {isa = PBXBuildFile; fileRef = E6C05DB51BA1E6F900CDDD08 /* Breakpad.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E6C05DB81BA1E6F900CDDD08 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6C05DB61BA1E6F900CDDD08 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +68,7 @@
 		16BFA66E14E195E9009704F8 /* ios_exception_minidump_generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ios_exception_minidump_generator.h; sourceTree = "<group>"; };
 		16BFA67114E1965A009704F8 /* ios_exception_minidump_generator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ios_exception_minidump_generator.mm; sourceTree = "<group>"; };
 		16C7C968147D4A4200776EAD /* BreakpadDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreakpadDefines.h; sourceTree = "<group>"; };
-		16C7C96A147D4A4200776EAD /* Breakpad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Breakpad.h; sourceTree = "<group>"; };
+		16C7C96A147D4A4200776EAD /* BreakpadInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreakpadInterface.h; sourceTree = "<group>"; };
 		16C7C96B147D4A4200776EAD /* Breakpad.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Breakpad.mm; sourceTree = "<group>"; };
 		16C7CB9E147D4A4300776EAD /* ConfigFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigFile.h; sourceTree = "<group>"; };
 		16C7CB9F147D4A4300776EAD /* ConfigFile.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConfigFile.mm; sourceTree = "<group>"; };
@@ -114,10 +115,10 @@
 		AA747D9E0F9514B9006C5449 /* Breakpad_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Breakpad_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E62CF3761B9F5AE40058D6FC /* Breakpad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Breakpad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E62CF3781B9F5AE40058D6FC /* BreakpadiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BreakpadiOS.h; sourceTree = "<group>"; };
-		E62CF37A1B9F5AE40058D6FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E62CF3851B9F5B700058D6FC /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		E69E4E301B9F71EF00646EDB /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
+		E6C05DB51BA1E6F900CDDD08 /* Breakpad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Breakpad.h; path = Breakpad/Breakpad.h; sourceTree = "<group>"; };
+		E6C05DB61BA1E6F900CDDD08 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Breakpad/Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +147,6 @@
 			children = (
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
-				E62CF3771B9F5AE40058D6FC /* BreakpadiOS */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
 			);
@@ -215,10 +215,10 @@
 		16C7C969147D4A4200776EAD /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				16BFA66A14E195E9009704F8 /* handler */,
 				16C92FAB150DF8330053D7BA /* BreakpadController.h */,
 				16C92FAC150DF8330053D7BA /* BreakpadController.mm */,
-				16BFA66A14E195E9009704F8 /* handler */,
-				16C7C96A147D4A4200776EAD /* Breakpad.h */,
+				16C7C96A147D4A4200776EAD /* BreakpadInterface.h */,
 				16C7C96B147D4A4200776EAD /* Breakpad.mm */,
 			);
 			path = ios;
@@ -312,18 +312,11 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				E6C05DB51BA1E6F900CDDD08 /* Breakpad.h */,
+				E6C05DB61BA1E6F900CDDD08 /* Info.plist */,
 				AA747D9E0F9514B9006C5449 /* Breakpad_Prefix.pch */,
 			);
 			name = "Other Sources";
-			sourceTree = "<group>";
-		};
-		E62CF3771B9F5AE40058D6FC /* BreakpadiOS */ = {
-			isa = PBXGroup;
-			children = (
-				E62CF3781B9F5AE40058D6FC /* BreakpadiOS.h */,
-				E62CF37A1B9F5AE40058D6FC /* Info.plist */,
-			);
-			path = BreakpadiOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,10 +326,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E62CF3791B9F5AE40058D6FC /* BreakpadiOS.h in Headers */,
+				E6C05DB71BA1E6F900CDDD08 /* Breakpad.h in Headers */,
 				E62CF37F1B9F5B410058D6FC /* BreakpadDefines.h in Headers */,
 				E62CF3801B9F5B410058D6FC /* BreakpadController.h in Headers */,
-				E62CF3811B9F5B410058D6FC /* Breakpad.h in Headers */,
+				E62CF3811B9F5B410058D6FC /* BreakpadInterface.h in Headers */,
 				E6C05D971BA1CB4E00CDDD08 /* ios_exception_minidump_generator.h in Headers */,
 				E6C05D981BA1CB4E00CDDD08 /* ConfigFile.h in Headers */,
 				E6C05D991BA1CB4E00CDDD08 /* breakpad_nlist_64.h in Headers */,
@@ -435,6 +428,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6C05DB81BA1E6F900CDDD08 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +541,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -567,7 +561,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = BreakpadiOS/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Breakpad/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -598,7 +592,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -613,7 +607,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = BreakpadiOS/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Breakpad/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

@@ -1,10 +1,8 @@
 //
-//  BreakpadiOS.h
-//  BreakpadiOS
+//  Breakpad.h
+//  Breakpad
 //
 //  Created by Steph Leroux on 2015-09-08.
-//
-//
 
 #import <UIKit/UIKit.h>
 
@@ -15,7 +13,7 @@ FOUNDATION_EXPORT double BreakpadiOSVersionNumber;
 FOUNDATION_EXPORT const unsigned char BreakpadiOSVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <BreakpadiOS/PublicHeader.h>
-#import <BreakpadiOS/Breakpad.h>
-#import <BreakpadiOS/BreakpadDefines.h>
-#import <BreakpadiOS/BreakpadController.h>
+#import <Breakpad/BreakpadInterface.h>
+#import <Breakpad/BreakpadDefines.h>
+#import <Breakpad/BreakpadController.h>
 

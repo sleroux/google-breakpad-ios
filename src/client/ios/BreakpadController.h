@@ -32,7 +32,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Breakpad.h"
+#import "BreakpadInterface.h"
 
 // This class is used to offer a higher level API around BreakpadRef. It
 // configures it, ensures thread-safety, and sends crash reports back to the
