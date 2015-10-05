@@ -250,7 +250,11 @@ NSString* GetPlatform() {
 
 - (BOOL)didCrashLastSession
 {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:kLastSessionDidCrashKey];
+    NSInteger buildNumber = [([[NSBundle mainBundle] infoDictionary][@"BuildID"]) integerValue];
+    NSString *lastCrashBuildNumber = [[NSUserDefaults standardUserDefaults] objectForKey:kLastSessionCrashVersion];
+
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kLastSessionDidCrashKey] &&
+           ([[NSUserDefaults standardUserDefaults] integerForKey:kLastSessionCrashVersion] == buildNumber);
 }
 
 - (void)resetLastSessionCrashState
