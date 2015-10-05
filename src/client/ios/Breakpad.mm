@@ -273,18 +273,17 @@ void Breakpad::UncaughtExceptionHandler(NSException *exception) {
 }
 
 bool Breakpad::CrashFilterCallback(void *context) {
-    SaveLastCrashState(context);
-    return true;
+  SaveLastCrashState(context);
+  return true;
 }
 
 void Breakpad::SaveLastCrashState(void *context) {
-    Breakpad *breakpad = (Breakpad *)context;
-    NSString *prefixedKey = [@BREAKPAD_SERVER_PARAMETER_PREFIX
-                             stringByAppendingString:@"BuildID"];
-    NSString *buildNumber = breakpad->KeyValue(prefixedKey);
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kLastSessionDidCrashKey];
-    [[NSUserDefaults standardUserDefaults] setObject:buildNumber forKey:kLastSessionCrashVersion];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+  Breakpad *breakpad = (Breakpad *)context;
+  NSString *prefixedKey = [@BREAKPAD_SERVER_PARAMETER_PREFIX stringByAppendingString:@"BuildID"];
+  NSString *buildNumber = breakpad->KeyValue(prefixedKey);
+  [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kLastSessionDidCrashKey];
+  [[NSUserDefaults standardUserDefaults] setInteger:buildNumber.integerValue forKey:kLastSessionCrashVersion];
+  [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 //=============================================================================

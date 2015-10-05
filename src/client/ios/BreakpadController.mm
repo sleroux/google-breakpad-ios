@@ -248,8 +248,7 @@ NSString* GetPlatform() {
   });
 }
 
-- (BOOL)didCrashLastSession
-{
+- (BOOL)didCrashLastSession {
     NSInteger buildNumber = [([[NSBundle mainBundle] infoDictionary][@"BuildID"]) integerValue];
     return [[NSUserDefaults standardUserDefaults] boolForKey:kLastSessionDidCrashKey] &&
            ([[NSUserDefaults standardUserDefaults] integerForKey:kLastSessionCrashVersion] == buildNumber);
