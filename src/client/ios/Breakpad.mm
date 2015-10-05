@@ -186,7 +186,7 @@ class Breakpad {
   // Callback invoked any time there is a crash
   static bool CrashFilterCallback(void *context);
 
-  static void SaveLastCrashState();
+  static void SaveLastCrashState(void *context);
 
   // Handle an uncaught NSException.
   void HandleUncaughtException(NSException *exception);
@@ -273,12 +273,17 @@ void Breakpad::UncaughtExceptionHandler(NSException *exception) {
 }
 
 bool Breakpad::CrashFilterCallback(void *context) {
-    SaveLastCrashState();
+    SaveLastCrashState(context);
     return true;
 }
 
-void Breakpad::SaveLastCrashState() {
+void Breakpad::SaveLastCrashState(void *context) {
+    Breakpad *breakpad = (Breakpad *)context;
+    NSString *prefixedKey = [@BREAKPAD_SERVER_PARAMETER_PREFIX
+                             stringByAppendingString:@"BuildID"];
+    NSString *buildNumber = breakpad->KeyValue(prefixedKey);
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kLastSessionDidCrashKey];
+    [[NSUserDefaults standardUserDefaults] setObject:buildNumber forKey:kLastSessionCrashVersion];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -573,7 +578,7 @@ bool Breakpad::HandleMinidump(const char *dump_dir,
 
 //=============================================================================
 void Breakpad::HandleUncaughtException(NSException *exception) {
-    SaveLastCrashState();
+  SaveLastCrashState(this);
 
   // Generate the minidump.
   google_breakpad::IosExceptionMinidumpGenerator generator(exception);
