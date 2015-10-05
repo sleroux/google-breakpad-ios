@@ -74,3 +74,4 @@
 
 // Keys for session information saved in User Defaults
 #define kLastSessionDidCrashKey @"com.google.Breakpad.LastSessionDidCrash"
+#define kLastSessionCrashVersion @"com.google.Breakpad.LastSessionCrashVersion"
