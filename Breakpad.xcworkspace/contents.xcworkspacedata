@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:src/client/ios/../mac/Breakpad.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/emilytoop/Development/google-breakpad-ios/src/client/ios/Breakpad iOS.xcodeproj">
+   </FileRef>
+</Workspace>
